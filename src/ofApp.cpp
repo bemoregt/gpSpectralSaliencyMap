@@ -4,10 +4,15 @@ using namespace ofxCv;
 //--------------------------------------------------------------
 void ofApp::setup(){
     
-    string filePath = "/Users/kerbal/Desktop/road.jpg";
-    //original.loadImage(fileinput);
+    //
+    gaussianSize = 9;
+    kernelSize = 3;
+    
+    filePath = "/Users/kerbal/Desktop/defect.jpg";
     before.load(filePath);
-    after.update();
+}
+//--------------------------------------------------------------
+void ofApp::update(){
     
     cv::Mat img = toCv(before);
     cv::cvtColor(img, img, CV_BGR2GRAY);
@@ -16,17 +21,19 @@ void ofApp::setup(){
     cv::resize(img, img, cv::Size(img.cols*ratio, img.rows*ratio));
     
     // Invert ----------
-    cv::Mat out2;
-    bitwise_not(img, out2);
+    //cv::Mat out2;
+    //bitwise_not(img, out2);
     
     cv::Mat planes[] = {cv::Mat_<float>(img), cv::Mat::zeros(img.size(), CV_32F)};
     cv::Mat complexImg;
     cv::merge(planes, 2, complexImg);
     cv::dft(complexImg, complexImg);
+    
     cv::split(complexImg, planes);
     
     cv::Mat mag, logmag, smooth, spectralResidual;
     cv::Mat mag1;
+    
     cv::magnitude(planes[0], planes[1], mag);
     cv::log(mag, logmag);
     
@@ -34,7 +41,7 @@ void ofApp::setup(){
     //toOf(mag1, original);
     //original.update();
     
-    cv::boxFilter(logmag, smooth, -1, cv::Size(3,3));
+    cv::boxFilter(logmag, smooth, -1, cv::Size(kernelSize, kernelSize));
     cv::subtract(logmag, smooth, spectralResidual);
     cv::exp(spectralResidual, spectralResidual);
     
@@ -51,17 +58,13 @@ void ofApp::setup(){
     //original.update();
     
     cv::multiply(mag, mag, mag);
-    cv::GaussianBlur(mag, mag, cv::Size(9,9), 2.5, 2.5);
+    cv::GaussianBlur(mag, mag, cv::Size(gaussianSize, gaussianSize), 2.5, 2.5);
     
     // normalize & show
     cv::normalize(mag, mag1, 255, 0, cv::NORM_MINMAX, CV_8U);
     toOf(mag1, after);
     after.update();
     
-}
-//--------------------------------------------------------------
-void ofApp::update(){
-
 }
 
 //--------------------------------------------------------------
@@ -93,6 +96,15 @@ void ofApp::keyReleased(int key){
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y ){
 
+    gaussianSize= (int)(x / 1024.0 * 40);
+    if (gaussianSize % 2 == 0){
+        gaussianSize += 1;
+    }
+    
+    kernelSize= (int)(y / 512.0 * 10);
+    if (kernelSize % 2 == 0){
+        kernelSize += 1;
+    }
 }
 
 //--------------------------------------------------------------

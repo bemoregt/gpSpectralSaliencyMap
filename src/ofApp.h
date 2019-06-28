@@ -26,5 +26,7 @@ private:
     ofImage before;
     ofImage after;
     
-    int GaussinSize;
+    int gaussianSize;
+    int kernelSize;
+    string filePath;
 };
