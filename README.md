@@ -6,6 +6,8 @@ C++ & OFX port of https://github.com/uoip/SpectralResidualSaliency
 ### Dependency
 - OpenCV 3.x
 - OpenFrameworks 0.10.1
+- ofxCv
+- ofxGUI
 - XCode 10.12.x
 - OSX Mojave
 
