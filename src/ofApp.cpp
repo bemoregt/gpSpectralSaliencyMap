@@ -1,6 +1,5 @@
 #include "ofApp.h"
 
-//using namespace cv;
 using namespace ofxCv;
 //--------------------------------------------------------------
 void ofApp::setup(){
@@ -59,7 +58,6 @@ void ofApp::setup(){
     toOf(mag1, after);
     after.update();
     
-    
 }
 //--------------------------------------------------------------
 void ofApp::update(){
@@ -85,7 +83,6 @@ void ofApp::keyPressed(int key){
         after.update();
         after.save(filename);
     }
-    
 }
 
 //--------------------------------------------------------------

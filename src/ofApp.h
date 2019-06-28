@@ -2,8 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxCv.h"
-#include "ofxGUI.h"
-#include "ofxOpenCV.h"
+#include "ofxGUI.h"   
 
 class ofApp : public ofBaseApp{
 
