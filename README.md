@@ -1,4 +1,4 @@
-# Spectral Residual Saliency Map for OpenFrameworkds
+# Spectral Residual Saliency Map for OpenFrameworks
 ![detection example]( https://raw.githubusercontent.com/bemoregt/ofxSpectralSaliency-/master/ScrShot%2016.png "saliency map")
 ![detection example]( https://raw.githubusercontent.com/bemoregt/ofxSpectralSaliency-/master/ScrShot%208.png "saliency map2")
 C++ & OFX port of https://github.com/uoip/SpectralResidualSaliency
