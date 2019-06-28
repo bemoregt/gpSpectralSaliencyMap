@@ -4,6 +4,7 @@
 using namespace ofxCv;
 //--------------------------------------------------------------
 void ofApp::setup(){
+    
     string filePath = "/Users/kerbal/Desktop/road.jpg";
     //original.loadImage(fileinput);
     before.load(filePath);

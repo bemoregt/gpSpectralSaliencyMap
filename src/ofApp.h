@@ -27,4 +27,5 @@ private:
     ofImage before;
     ofImage after;
     
+    int GaussinSize;
 };
