@@ -72,6 +72,15 @@ void ofApp::draw(){
     ofSetColor(255,255,255);
     before.draw(0, 0, 512, 512);
     after.draw(513, 0, 512, 512);
+    
+        // filled box
+    ofSetColor(10, 10, 10);
+    ofDrawRectangle(5, 5, 200, 60);
+    
+    // text
+    ofSetColor(255);
+    ofDrawBitmapString("Gaussian Size= " + ofToString(gaussianSize), 20, 30);
+    ofDrawBitmapString("Kernel Size= " + ofToString(kernelSize), 20, 50);
 }
 
 //--------------------------------------------------------------
