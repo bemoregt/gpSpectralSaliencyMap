@@ -11,6 +11,10 @@ C++ & OFX port of https://github.com/uoip/SpectralResidualSaliency
 - XCode 10.12.x
 - OSX Mojave
 
+### Next Plan
+- Add TextBox for 2 parameter display. OK.
+- Drag & Drop for file selection.
+
 ### Reference
 ```
 @inproceedings{
