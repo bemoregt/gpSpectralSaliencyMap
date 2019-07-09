@@ -153,5 +153,11 @@ void ofApp::gotMessage(ofMessage msg){
 
 //--------------------------------------------------------------
 void ofApp::dragEvent(ofDragInfo dragInfo){ 
+    if( dragInfo.files.size() > 0 ){
+        before.load(dragInfo.files[0]);
+        before.setImageType(OF_IMAGE_COLOR);
+    }
+    //
+    ofSetWindowTitle(dragInfo.files[0]);
 
 }
