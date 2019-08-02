@@ -12,8 +12,9 @@ C++ & OFX port of https://github.com/uoip/SpectralResidualSaliency
 - OSX Mojave
 
 ### Next Plan
-- Add TextBox for 2 parameter display. OK.
-- Drag & Drop for file selection.
+- MouseMove event handling for 2 parameter: Finished.
+- Add TextBox for 2 parameter display: Finished.
+- Drag & Drop for file selection: Finished.
 
 ### Reference
 ```
